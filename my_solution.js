@@ -5,23 +5,16 @@ class ListNode {
     }
 }
 
-/*
-    if head is null, return null
-    if list only has 1 node, return its value
-    
-    create a variable that is for fast and a variable for slow
-    for each loop, fast will move 2 spaces while slow will move once
-    when fast can't go any further, we return slow's value
-*/
-
 function findMiddle(head) {
     if(!head) return null
-    let fast  = head
+    
+    let fast = head
     let slow = head
-    while(fast && fast.next && fast.next.next){
-        fast = fast.next.next
+    while(fast.next){
         slow = slow.next
-    }    
+        fast = fast.next.next
+    }
+    
     return slow.value
 }
 
